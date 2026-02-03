@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dalu 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffd6e8, #fff);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .teddy {
+      font-size: 80px;
+      animation: hug 2s infinite;
+    }
+
+    @keyframes hug {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.3em;
+      color: #c2185b;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dear Dalu 💕</h1>
+
+  <div class="teddy">🧸🧸</div>
+
+  <p>
+    Thank you for being a wonderful big sister.<br>
+    Your love, care, and guidance mean more to me than words can say.
+  </p>
+
+  <button onclick="openGift()">OPEN 💖</button>
+
+  <div id="message" class="hidden">
+    Thanks for being part of my growth.<br>
+    I wish to have you in my next life 🤍
+  </div>
+
+  <!-- Background Music -->
+  <audio id="music">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openGift() {
+      document.getElementById("message").style.display = "block";
+      document.getElementById("music").play();
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
